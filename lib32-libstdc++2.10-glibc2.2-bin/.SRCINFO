@@ -1,0 +1,14 @@
+pkgbase = lib32-libstdc++2.10-glibc2.2-bin
+	pkgdesc = Legacy GNU C++ Library
+	pkgver = 2.95.4
+	pkgrel = 1
+	url = https://www.gnu.org/software/cpplib/
+	arch = x86_64
+	license = GPL-2.0-or-later
+	provides = lib32-libstdc++2.10-glibc2.2
+	provides = libstdc++-libc6.2-2.so.3
+	options = !debug
+	source = http://launchpadlibrarian.net/1452317/libstdc++2.10-glibc2.2_2.95.4-24_i386.deb
+	sha256sums = 4491a1b211724abc12197992198770c2460e7bb7c1c68888c18e34f546218885
+
+pkgname = lib32-libstdc++2.10-glibc2.2-bin

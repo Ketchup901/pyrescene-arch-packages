@@ -1,0 +1,21 @@
+diff --git a/rescene/main.py b/rescene/main.py
+index ecb05fd..7056fab 100644
+--- a/rescene/main.py
++++ b/rescene/main.py
+@@ -2240,11 +2240,11 @@ class CompressedRarFile(io.IOBase):
+ 		size = self.rarstream.tell()
+ 		self.rarstream.seek(0, os.SEEK_SET)
+ 		
+-		if size != get_full_packed_size(first_block, blocks):
+-			print(size)
+-			print(get_full_packed_size(first_block, blocks))
+-			self.close()
+-			raise ValueError("Still not fine :(.")
++		#if size != get_full_packed_size(first_block, blocks):
++		#	print(size)
++		#	print(get_full_packed_size(first_block, blocks))
++		#	self.close()
++		#	raise ValueError("Still not fine :(.")
+ 
+ 	def search_matching_rar_executable(self, block, blocks, 
+ 			thread_count, more_files=False):

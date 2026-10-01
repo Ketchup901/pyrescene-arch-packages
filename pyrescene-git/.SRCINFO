@@ -1,0 +1,24 @@
+pkgbase = pyrescene-git
+	pkgdesc = pyReScene is a port of ReScene .NET to the Python programming language.
+	pkgver = 0.7.r62.g04da213
+	pkgrel = 1
+	url = https://github.com/srrDB/pyrescene
+	arch = any
+	license = MIT
+	makedepends = python-build
+	makedepends = python-setuptools
+	makedepends = python-installer
+	makedepends = python-wheel
+	depends = python
+	depends = unrar
+	depends = python-nntplib
+	depends = rarlinux-pack
+	optdepends = chromaprint
+	provides = pyrescene
+	conflicts = pyrescene
+	source = pyrescene-git::git+https://github.com/srrDB/pyrescene.git
+	source = disable-size-check-for-compressed-rar-reconstruction.patch
+	md5sums = SKIP
+	md5sums = e363034dd5bf5fb20552d6866db2bbb0
+
+pkgname = pyrescene-git

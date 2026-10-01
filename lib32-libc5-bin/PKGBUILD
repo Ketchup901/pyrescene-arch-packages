@@ -1,0 +1,27 @@
+# Maintainer: Ketchup901 <ketchup901@riseup.net>
+
+pkgname=lib32-libc5-bin
+pkgver=5.4.46
+_libmver=5.0.9
+pkgrel=1
+pkgdesc="Linux C Library 5"
+arch=('x86_64')
+url="https://www.man7.org/linux/man-pages/man7/libc.7.html"
+license=('GPLv2')
+provides=('lib32-libc5')
+options=(!debug)
+source=("https://www.kernel.org/pub/linux/libs/libc5/old/libc-${pkgver}.bin.tar.gz")
+sha256sums=('2ba0d54c815619774763df6c3c4e060dcb6921e612495e5fb511bf1d275728a7')
+
+package() {
+    install -Dm755 lib/libc.so.$pkgver -t "$pkgdir/usr/lib32/"
+    ln -s "libc.so.$pkgver" "$pkgdir/usr/lib32/libc.so.5"
+    install -Dm755 lib/libm.so.$_libmver -t "$pkgdir/usr/lib32/"
+    ln -s "libm.so.$_limver" "$pkgdir/usr/lib32/libm.so.5"
+
+    install -Dm644 usr/lib/*.{a,o} -t "$pkgdir/usr/lib32/libc5/"
+
+    install -d "$pkgdir/usr/lib32/libc5/include"
+    cp -R usr/include/* -t "$pkgdir/usr/lib32/libc5/include/"
+}
+

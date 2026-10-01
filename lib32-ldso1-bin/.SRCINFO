@@ -1,0 +1,16 @@
+pkgbase = lib32-ldso1-bin
+	pkgdesc = Old Linux interpreters
+	pkgver = 1.8.5
+	pkgrel = 1
+	url = https://www.gnu.org/software/cpplib/
+	arch = x86_64
+	license = GPL-2.0-or-later
+	provides = ld-linux.so=1
+	provides = ld.so=1
+	provides = libdl.so=1
+	options = !strip
+	options = !debug
+	source = https://archive.debian.org/debian/dists/rex/main/binary-i386/base/ldso_1.8.5-1.deb
+	sha256sums = 3f1e2d1e297a20da3137ccab43117bda0c67af6fd4b7e9d16ece131333a92a31
+
+pkgname = lib32-ldso1-bin

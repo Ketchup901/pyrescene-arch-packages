@@ -1,0 +1,445 @@
+# Maintainer: Ketchup901 <ketchup901@riseup.net>
+
+pkgname=rarlinux-pack
+pkgver=1
+pkgrel=1
+pkgdesc="Pack of every rar version"
+arch=('x86_64')
+url="https://www.rarlab.com/"
+license=('custom')
+depends=(
+    'lib32-libc5'
+    'libstdc++-libc6.2-2.so.3'
+    'ld-linux.so=1'
+    'lib32-libstdc++5'
+    'libstdc++'
+    'glibc'
+    'libgcc'
+)
+makedepends=(
+    'rar'
+    'patchelf'
+)
+options=(!debug)
+source=(
+    # 32-bit
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/RAR20LNX.SFX'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarln202.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlnx25.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rlnx26b5.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rlnx26b6.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlnx26.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarln271.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlnx28.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rlnx29b1.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rlnx29b2.sfx'
+    'ftp://ftp.rarlab.com/rar/rarlnx29.sfx'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.0.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.0.b6.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.1.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.1.b2.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.1.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.1.1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.2.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.2.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.2.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.2.b4.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.2.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.3.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.3.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.3.b4.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.3.b5.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.3.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.4.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.4.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.4.b5.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.4.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.4.1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.5.b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.5.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.5.1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.6.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.7.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.7.1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-3.8.b3.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.8.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.9.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.9.1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.9.2.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-3.9.3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-4.0.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-4.0.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-4.0.b4.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-4.0.b5.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-4.0.b7.tar.gz'
+    # 64-bit
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-4.0.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.0.1b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-4.0.1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.1.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.1.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.1.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.1.b4.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.1.b5.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-4.1.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.2.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.2.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-4.2.b3.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-4.2.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b4.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b5.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b6.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b7.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.b8.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.0.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.0.1b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.0.1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.1.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.1.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.1.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.1.b4.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.1.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.1.1b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.1.1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.2.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.2.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.2.b3.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.2.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.2.1b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.2.1b2.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.2.1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.3.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.3.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.3.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.3.b4.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.3.b5.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.3.b6.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.4.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.4.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.4.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.4.b4.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.4.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.5.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.5.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.5.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.5.b4.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.5.b5.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.5.b6.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.5.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.6.b1.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.6.b2.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.6.b3.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.6.b4.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.6.b5.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.6.0.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-5.6.1b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.6.1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.7.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.7.1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.8.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.9.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-5.9.1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-6.0.0.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-6.0.1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-6.0.2.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-610.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-611.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-612.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-620b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-620b2.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-620b3.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-620.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-621b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-621.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-622b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-622.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-623b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-623.tar.gz'
+    'https://raw.githubusercontent.com/Ketchup901/rarlinux/master/rarlinux-x64-624b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-624.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-700b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-700b2.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-700b3.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-700b4.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-700.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-701b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-701.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-710b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-710b2.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-710b3.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-710.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-711b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-711.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-712b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-712.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-720b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-720b3.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-720.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-721b1.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-721.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-722.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-723.tar.gz'
+    'ftp://ftp.rarlab.com/rar/rarlinux-x64-730b1.tar.gz'
+)
+sha256sums=(
+    '8d6235bea912981201cc55e400dec5e6739e593b76a4b836a9979bc7f630effa'
+    'd7bbbed4074d7ca2d8e5475aa923dbfdf2ca1482c1f4bb3cf10ed814d261c1ce'
+    '30a0ce672fd26780de94f3bb164339886e3fa621dea9e6e73015af4b90f730be'
+    '4a141ac75681ad0226fcce69bd9ea57c52e5533fd4741451391d0152049e0545'
+    'b7ae431edc3aeac5b56371ef2c3e2f7b8f7b29b0e10e4f9376ffa741bb150cb4'
+    '1f17e6c766b8b471ab5ae6918a11ff6a85cec8c05c96855a58f96c7a0d7975e6'
+    'ed998433ede0ea9ce76ee83ec0d7eb71476cfde89a7cb11d73c7a63c3cf0fc9f'
+    'b61a1fed86b80dbf9bd91ce86c77d2679e972671141ef75fbf27dc91978f0bec'
+    'f8ada1116794867cc990164e07c9336656fce108597ec7df8bcbe5be185fe6a8'
+    'bce3a2d17e67e8623c3301384d05fc0acec6ece37192765c75f25fa24445f105'
+    '1ab8f5a075df1ef1b12b20cefdf5e4b08543c7f588fa547228884a15e179bdde'
+    'c38e87d9082a62676d2478dcb598619b171829950db13ed4f9b3c004dba2d6ee'
+    'ea9d1dc92843f481536bd4eed1db3a320c4c3ba4ed3290bb9e684f1798f13903'
+    '9b819e09505f06fe806590a112056b32917b80165037d0a96be9d09a8c589ce9'
+    '31f56dcccd595f65d5a5ff412168326483a5e934910883446a177edf23143076'
+    '11d5d9206a03efe6b6a7784a9009cb92691134f55fca677e65ae2e6edd0935ad'
+    '6965c15c284ba9bb0cf8d34513861c5c0ffeb5d14f2b49aa18c43a29a7722a82'
+    'b12a0b5554f7e2f5cc6b140e5e2fac2c59e8c257aafff09d291cf0d18e300b10'
+    'eaf50269e78d28af6f48df641c753b1ee66dc9b08be2fd5fd050d00ceded8143'
+    '54f8b2656d2bcfbebec6dc03f03c0ace037df825c33f0c7d53e608b951b1b8f2'
+    '2c8bbdfce089451d2840ca373b855567c4fe5cad3112ef27ae20917da63c11e5'
+    '78d2fae39701553449f9108eca0071ba55d3c2185d7aaa626925f9cfade16a58'
+    'f1a11771cb75ea9b886e19c0d751a58b0e60c0efc0fb7ab174ac8ab5533bba4e'
+    '8dec9df27c5d7a12cd671b1eb1849a4aeccbd0795da26697ef638ff07d943edb'
+    '596efdb7e518a82045949a1b846374682623398b5863ffe5dad4112785b69895'
+    'ac211c9953b3d56180547cc0679bf77db50e9979c8a6290ff58a474ec9c129fb'
+    '2be835d37d49a78ba7440fb724037fe8b96708cf927f3779be64201e7cced05a'
+    '773e1f49d86279fa100f1ddbc1ab8351c0340c72235ef21590118509549e6c5b'
+    'bb46197c8fe726278a20149589bccda6d91a2e64b0ca4eb97557d2644a03dde5'
+    'bfcb7dcd42d9c35b04a991b46d5855f8a7d7ba7a9b2101604c40bdbc4a6daa4e'
+    'a28e98a46b0d4b8ab03920f653947bb51ccc114a8e0cb90ca91835d16491875f'
+    '187b649aa72a05c48641758bcad4f069f77cb6f4285f1b0ea1e861f39e46e743'
+    'eb1bbd707bb7186df7971ee0006e16cd1a2a2238da6084038fc7c68597bbbb22'
+    '92e641eb02d47287dcbfe951a356fe822b587731dc5156f7248ae5ade9801b3b'
+    'd612ba810ed9ae1a0f40fe07a4219467ba5ece59adcc9b8b6dcf567e188ee585'
+    '4363b8a061ae92f9d39ef58c65c770841ce003949ce145ee967f573d119a7c6e'
+    '7d2c462dd6d48ad8ff11061fb4d73d38a71a2ffa380e04566a85c2b971cb5412'
+    'a7861412cc7df25a8665a7a05b7acead1dd9739c362c4784b67990e4c733aec5'
+    '865811fbc64815dbf106dbca78ec07d48a7a7122bc1c18bd1b20ff5848f9856c'
+    '4b33a06fa42adc9674f08df0abe867f3888b9cd49c3484dbe3489929e625ba89'
+    'd81a172ebe982254ef913f251c23daf94af15508cb38fb5430c557f6f3718b0f'
+    'b80936dc6e09ca57cfe6a98bfca32ac379b96cf475879277fc8d4d15ebdd84a9'
+    '582b8df62df6016b3ec72c4dad7d4d7e53bad1f93c0625ccb8e4e021b988b2da'
+    '71997f9cf3325797103bab7927e073d62680432c1177bb176f8dc492650c3a31'
+    '55122286a2a72ccc2b866c5a0e415c05638dfe99cebb5f2ef036784387a8eff8'
+    '9d67fdfe4be26fc439d0af02dd99e2f5646a01f80426f0e11fda9252212f6bcd'
+    '5bc3843e3229f345d7eff60df0dd985b5e111334e1b4ee73186ee8266fa4c204'
+    'e12edb2dd585306832504e0a61a2cc56b8ec184f010edb402906d78318ab3682'
+    '51e88f188fbdf9467563d15ef25e40f0c67321fffe73ab4479a9a70ef0452c3e'
+    'e55360ed3456a87f949e283c5824aba61c37fbb164a59aa0b0fc2fcf739f931c'
+    'aa78873750a0ded35109d71280a7af337fc36492034362ee69f73d4f14d866c4'
+    'bfb0205998a0c758cb76b078bd77c7a77e238eb26b99c8400fcab7f236c3306e'
+    '452b32e5bbb872e59ea67daadd5be1ac9ab35bf2298823928ae60ba224cb2120'
+    'c2688d6e7e506ba04d0776da69872d6a0abb3da0037b8e84da08d2b1cd6b4177'
+    '2adf295e1ae1d8598eff62c3073aa67b5d5c0e83b407caab4da335444b2ce929'
+    '07054e03486fc52f2e05efdb513a39b66b96e02780af8d0d06327cbc03f45497'
+    'bc369295593cb6f4f0f659c72d12e746e9858d1483257922d50fd986c808da67'
+    '20beefef05de6a4e3512955d08d53ba47c4a40164b207c5519fed06d88785766'
+    'a94da95aea0d723b28b3cc0af4329e0ad4f0044f3cd5ed75cb04e8767e890da7'
+    'c889e697d2d068c5be7ff56ae4f5bc65d097985ac7048201f613492e6659cd54'
+    'db418ba590aa011ccaede13722aa1be12c2a2a2757af6f65cf94a91cd9923ec6'
+    'b3f11ab046555c6b47c254031c4482e26562365df0637518952c6d68d8733a79'
+    'db4a35d1092eade42fd4233e200c8a24b942c7d67a4b7d0f92914781924b3985'
+    '26bd824b81f6e7a2fcbc3ed43dee5feb70cbb8403c2eacb41010b7487e28214b'
+    '38998f708b412d0e6f719d15f964fb9f8e65d4674b220e7036071366da50ba98'
+    '6c1b52d8fb95c65dcbc342140450d8ee1175e2615bbd92d0d65f967d7f893c10'
+    '802ef21deb3d76e83fcc167d11bed780c2362511abdb26a7c74c627ba87767e5'
+    '1317f932bfaae61abcb37a6f68cf5d9bf20aed1ac95b5f77d3b7d83189208278'
+    '9b924d004260e2b12b3339520487faded59c3bc9b3987832b9eea884006c1460'
+    '7c6e58cb761749bdae27fadbd4c45a08d2443a24b61257a906e1c76e79087878'
+    '70764684ffb43efda6e540c373e537a5d6cbcfed6cf71fe10ca264a5dc7ae5fe'
+    'aceefdab919a03dfab9892dbd7d25cbc0681f76608de2c73e400887fd625f30c'
+    '1363b29cc0e0e0b782629969aed70eb889329752b087b857c2e7c4cc5df18e97'
+    '1eb54330d63aef7ee0e3e8b7a4333ff5ca163ff52e49086320f00e73afde6944'
+    '005caf05407e81830af309a3d327b492b8a455226c0f28b40f538afc680fd7f9'
+    '1058040c395c8f0a66cd857a9e0735201dc21f3caf8ee556ec7785723ee58887'
+    '5277f64afff8953451556a593db0669a0f173c531161b34f8b4e93601c43ca76'
+    '0a97d801cf87e0168b74c667c95fa973042dfb4c16fc8a6fef48f1a076700ad6'
+    '8c04474201179cc3d3a4f3d1aa7bdd6ee3244479aa16371d2449cf416f882299'
+    '670febb159add2d6c7fc16a44b0849bb9895f1a22a6447db34542ebcd07d10ec'
+    '51630e2b0825178edc9fc1e6aafab9681e47519b6a8e0adb0cf6231f74978e9d'
+    'b0d59b9592abff473981ba13b10a81f29a579ec539bea7ba08ed937eaca8cc7d'
+    'a86c746bbf68ddf18796d555d8a3e2143215319fdbcd3352b617704215647f3b'
+    'a7cc8028f67a86a2eadf6e1b5e968041f7cfd93ea28a7aa38de3db6ace7ce026'
+    '4cd9f56907327b26a40fefb54f71a765a960ab74f511c75c96daa892e5c9347e'
+    'c4c7c413d27fa4034a240ba7ce5b5075eee2543213087ea3f0a1203635eea151'
+    '8582e0c2ab7b07d86869118e27b523e58d33c3fc521aab31b48ada576c8c9806'
+    '54015e921bf2789ca90afdf913c5a5d57db612bfdbf33eedae7b068aa1016a2d'
+    '8c3ea51cbf7474cf5d1ee662c2943cc5851c18b44d93775fd051c7bfb1ca8fc7'
+    'd698a973075ebd14d285c0b441e5d94ad0930481449bac090d84786c5a2ffb36'
+    '3edd59132e9f84f2cc6fd71b7e077aa3dbbea00804e77c09862ba96e31e12767'
+    '3aa71b1a5934321e9a1cce6bc2a4980869a6c3fad83ead6cd46935ac1c722edf'
+    '37d694e42508183c038d1e9a79220c94da533fc1745635ce2b84cd27935a9007'
+    '340efedc922a88925d12bb94ee12329ea96b887c3fcfd209582e5fbe91f9b141'
+    '8075b01d29ba0fc0c927f08e2a1b2149921bdb42c9457b7a7ef0950e387b5131'
+    '1c461c6a7bd2db40b157672b97a978e907931d1de92fadecd129a422d04f3382'
+    'ed14c9dafab6a516b258914ddaa55f71b95599e0c6653e50c70020b0442091bb'
+    'b367e80cf7ca4fb5aa939465c643302423e129c788a78e8f86002e2faec28b98'
+    'd44516251999632fe4a9838f7b9364f28444a2987fe69040d835fee2298a5126'
+    '264b7f09270c44ee9be5f0e8e8cab48781822c9d3aa6caf078af01719511b6de'
+    '4d699bf1ed6320df13b7e7881164ebc49aa7709187b79c93f65f1110f9a29933'
+    '17523722e2d9e62a21e1b15f7a5487d6cb016929cf17f7d59b201bca2eea7fa4'
+    'a9c6eb1da6f3514d6b15a23eb0f640e97a0d248f219d01d9c70f6f8ab5e584e5'
+    '1d1b0d43542c047c8d7080fb59665613727496cd6f1e6a4ffd40e103d13e6298'
+    '31e533de2e1350013a1ffa2f2bbfd15e05d8d069551541bf821883d41980f0f2'
+    '01e8146063319439df6efbda06b9a31e9bb8c9cebd3c1b61bada95d708f065f3'
+    '798fa2815f62062eb2e7ca3750fcf30a9af212998f29738a33f12d819e866c4f'
+    '8e9554e8d67c7b61642e8c99444ff3ad96ec93b2470a6b84898f7154f49e551a'
+    '77a7f715abfda6b13bcabdab91a96af959fbd6e56ae4394e5a8bc3a1847261c3'
+    '37890d135e8d14db7dfab163a224edde9dcf6742b543921c728992948ca7a5d4'
+    '84a3b7614f6ee8d2d3c673a3fd120788a28741a36e71c3e063f223a5a5adcd4f'
+    'a4df35bf81cbc6449ca7b804dea39d0f1c0ff600342ee92708d0532b49ad42d0'
+    '1b4a1a21f9b71505cd09cae6e5931bd772f7d9f90229a3b270e691f6d8f3b0ba'
+    '7d5b5515ba9b15964b04c0948d946a5127ead6db2081b4b520a22b8a10da8aa7'
+    'e4142ac68034c66ffcd71b220d947fde0ac20d7b47e7e65af353b64d6ac1b927'
+    '135eb0256f6449b1695fc6a4e3512aa9d5a2a5a5019cca655a603f752565c1c0'
+    'bebf9912cde20ba0400bf9e494fa586a331c5584f3abc183e3424d57f0ff0251'
+    'f6b3fd2bd654f34c7f3f5d8909dedf0b1c31dfe45bb7dc270744c2573a35c8bb'
+    'a9521667094664084387baf17bcfe1d83a332f2b3b89736e8cb0de5e72fd7bdd'
+    '4eecb5f5f2cdd6b896bbbf5f98e718a672171f44fa9205f441aa6e6771ef2c06'
+    '7cdd21a3d1a3413591436843642699efb89a3c3ad1b7dc454b9bcabab85cfc19'
+    '3261946baf62ff628e1a11636d697e13aaffe6d912a79d11f194c8949bb6f52d'
+    '580beb5060a07f0239d4ca3f45849217438b3cfad37a0502b8312c9c1791f6e4'
+    '80967cf7ab9d55165eb2b7c6343dff4d5fc3e7ab461c7beaef72dcb151d739e1'
+    'a5bdd074ba9dc487f7c9b2df3daa3731d8a54c7623081d41ba362c4d0b8432d1'
+    '65a1a7e4ecea5730e88c99fc6d3adb461d70bd85cced22bdd6397dea66cd01e0'
+    'a5a11d5d02396afb7aa54606aacf2934bd9c7ab0da3b0408bd338d6c9a18d68a'
+    '9c28dcef37cebdb69c7661d0745bcb83bbfbadfe4e2efe1d30ec8f1a8c0b442f'
+    'ac47316089f34c4753549f6df7d1728dcb2cd18d5e6b05ef4cf7d3555eb150a0'
+    'a17df6b0460a285c558e493cc81ecd370af042861aa98ae081290d12f5d71967'
+    'e1ee1ff32d7de326f9f2ae2c873723414e3a1ac19baa28b161da50c674187dc4'
+    'ddfaf9695921febe8e7c111c6542c9499a79c9d6a424e2d13e583331d9701933'
+    '8a4eb1666e76a1eacdd26eecc930ec0873adebfecdbcb31423e9889ef2c62d70'
+    'b692ef88998973ec9d1b0eeb555f99c71d3c9221bbb61b2dc422bc82b3852942'
+    '7dbde02d83c0d213cae02dd5702ae7c495eac1202bf279b657b78e534e80f7c1'
+    'a17002df0d47f65486a93fdbd84b5a50a16302f76873f88bccad0c8c126169dc'
+    'ed1ca9d3a498216f6c24c7959fbb8b77364bbf2ef95b115e96ff390d02680331'
+    '88e22a8e84125c947637bbf28c746e338a0a63279d80f9f9d7373603875db1eb'
+    'ea95cea12e5fd4f0089723ee4c92dd8db27c28e2038ed15185ac812b5aaaedce'
+    '8e6f1738e32d69faa8d5abf3bde31fc81140bac2880b00d9ebaafb95fefbe901'
+    '6a66d227813e4eb5dcfa7e6e99be9796d2d4e0c10c5009260f95721068e026b2'
+    '5b38cdbaf39e0fbbc046cc35de98a4f9965540bb3250dd923d0e5286b79203d6'
+    '1dbbfaf1a9697826ee1c52cfdfa10667ff6713500d96926383a8771b3eeee222'
+    '3e753efef9e55ad5cf8ee636ef488c34c5d82345e5c7af3d426928f6a8c4e39f'
+    'df88966a3ca5b129883ae013ea457b736e77eea5851dcfa04fe253fedad6af0f'
+    '528dad62ca98b70b2fed9d56d61a000e59188291d1d20cc7c198ee2dcef4e45a'
+    '6e5ad144fb8043e63751c1de39382fee58a06f2d45ec7068dffb16248c95fbe2'
+    'e5083ff19cdf5b7566b562a859454485b33af4fd2b002716af48eaaa02dd2791'
+    'e3e07d6b98eef634a518188108213d4a4f4d8d4c4b34dcafe03b83328a725401'
+    '20d6321f808029df16c8ba8be1fb22e3a5ec72cadcf620138373255a2dda31be'
+    'f502e579e6f7f3d7714ab35cd7385d1890c912d512ef4470f90f13249c7246af'
+    'c0d6dfe2ae9d122cd0a60735e03430ee257cb35714b6c4ebe1170651adf3ffe4'
+    '630d9a9dd131367273667bee079ad103f469f1b7cdbc9b42a4f283cc2993bab2'
+    '04b72a6b70bee703885eae608ee7f038294675d55bbe3f8d035fb6a7fc88bc02'
+    '537d533ea7061542ab13dac08f85cf425a0e3db16265f459670d870f98c63b83'
+    'd3e7fba3272385b1d0255ee332a1e8c1a6779bb5a5ff9d4d8ac2be846e49ca46'
+    '9f279dc73f3aa22cd917620f408e75cdc3f4969e83265ffb2dc8b5d980810eb2'
+    'c2b63bfb513748da41bb83ec3465feca85a3951d0296be5ee34c602d999b1247'
+    '34455a6fca2b3aa2bf7fdb78998a11fedf4377ebac8581c5e9357e197263b071'
+    '759b4b6aa0d9f77131882162951193f3a0e54bf60e1d8dc4255aa308accab588'
+    '17aae715f2741151a850e6ee2a254986990d74e1dac58b86ad264d05cbb7df66'
+)
+
+noextract=("${source[@]##*/}")
+
+prepare() {
+    echo -n "Extracting RAR20LNX.SFX -> "
+    date=$(rar l RAR20LNX.SFX rar | awk '$NF == "rar" {print $3}')
+    rar p RAR20LNX.SFX rar > ${date}_rar200b3
+    echo "${date}_rar200b3"
+    
+    for archive in rarln202.sfx rarlnx25.sfx rlnx26b{5,6}.sfx; do
+        echo -n "Extracting $archive -> "
+        date=$(rar l $archive rar | awk '$NF == "rar" {print $3}')
+        version=$(echo $archive | sed -E 's/ra?r?lnx?//;s/^([0-9]{2})([b\.])/\10\2/;s/\.sfx//')
+        rar p $archive rar > ${date}_rar${version}
+        echo "${date}_rar${version}"
+    done
+
+    for archive in rarlnx{26,28,29}.sfx rarln271.sfx rlnx29b{1,2}.sfx; do
+        echo -n "Extracting $archive -> "
+        date=$(rar l $archive rar/rar | awk '$NF == "rar/rar" {print $3}')
+        version=$(echo $archive | sed -E 's/ra?r?lnx?//;s/^([0-9]{2})([b\.])/\10\2/;s/\.sfx//')
+        rar p $archive rar/rar > ${date}_rar${version}
+        echo "${date}_rar${version}"
+    done
+
+    for archive in rarlinux-3.0*.tar.gz rarlinux-3.1.b*.tar.gz; do
+        echo -n "Extracting $archive -> "
+        date=$(tar -tvf $archive rar/rar | awk '{print $4}')
+        version=$(echo $archive | sed -E 's/rarlinux-//;s/^([0-9]\.[0-9]\.)([bt])/\10\2/;s/\.//g;s/targz//')
+        tar -xOf $archive rar/rar > ${date}_rar${version}
+        echo "${date}_rar${version}"
+    done
+
+    for archive in rarlinux-3.1.{0,1}.tar.gz rarlinux-3.[!01]*.tar.gz rarlinux-4.0.b*.tar.gz; do
+        echo -n "Extracting $archive -> "
+        date=$(tar -tvf $archive rar/rar_static | awk '{print $4}')
+        version=$(echo $archive | sed -E 's/rarlinux-//;s/^([0-9]\.[0-9]\.)([bt])/\10\2/;s/\.//g;s/targz//')
+        tar -xOf $archive rar/rar_static > ${date}_rar${version}
+        echo "${date}_rar${version}"
+    done
+
+    for archive in rarlinux-x64-4*.tar.gz rarlinux-x64-5.[0-3]*.tar.gz; do
+        echo -n "Extracting $archive -> "
+        date=$(tar -tvf $archive rar/rar_static | awk '{print $4}')
+        version=$(echo $archive | sed -E 's/rarlinux-x64-//;s/^([0-9]\.[0-9]\.)([bt])/\10\2/;s/\.//g;s/targz//')
+        tar -xOf $archive rar/rar_static > ${date}_rar${version}
+        echo "${date}_rar${version}"
+    done
+
+    for archive in rarlinux-x64-5.[4-9]*.tar.gz rarlinux-x64-6.*.tar.gz; do
+        echo -n "Extracting $archive -> "
+        date=$(tar -tvf $archive rar/rar | awk '{print $4}')
+        version=$(echo $archive | sed -E 's/rarlinux-x64-//;s/^([0-9]\.[0-9]\.)([bt])/\10\2/;s/\.//g;s/targz//')
+        tar -xOf $archive rar/rar > ${date}_rar${version}
+        echo "${date}_rar${version}"
+    done
+
+    for archive in rarlinux-x64-6[!.]*.tar.gz rarlinux-x64-7*.tar.gz; do
+        echo -n "Extracting $archive -> "
+        date=$(tar -tvf $archive rar/rar | awk '{print $4}')
+        version=$(echo $archive | sed -E 's/rarlinux-x64-(.*).tar.gz/\1/')
+        tar -xOf $archive rar/rar > ${date}_rar${version}
+        echo "${date}_rar${version}"
+    done
+}
+
+build() {
+    mkdir very_old
+    strip 1996-07-16_rar200b3
+    patchelf --set-interpreter /usr/lib32/ld-linux.so.1 ./1996-07-16_rar200b3
+    patchelf --set-rpath /usr/lib32 ./1996-07-16_rar200b3
+    mv 1996-07-16_rar200b3 very_old/
+    cat > 1996-07-16_rar200b3 << 'EOF'
+#!/bin/bash
+export LD_LIBRARY_PATH="/usr/lib32"
+exec -a "$0" "$(dirname "$0")/very_old/1996-07-16_rar200b3" "$@"
+EOF
+
+    strip 1997-12-29_rar202
+    patchelf --set-interpreter /usr/lib32/ld-linux.so.1 ./1997-12-29_rar202
+    patchelf --set-rpath /usr/lib32 ./1997-12-29_rar202
+    mv 1997-12-29_rar202 very_old/
+    cat > 1997-12-29_rar202 << 'EOF'
+#!/bin/bash
+export LD_LIBRARY_PATH="/usr/lib32"
+exec -a "$0" "$(dirname "$0")/very_old/1997-12-29_rar202" "$@"
+EOF
+}
+
+package() {
+    install -Dm755 *_rar* -t "$pkgdir/opt/rarlinux/"
+    install -Dm755 very_old/* -t "$pkgdir/opt/rarlinux/very_old/"
+}
+

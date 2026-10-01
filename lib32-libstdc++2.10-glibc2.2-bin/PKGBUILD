@@ -1,0 +1,20 @@
+# Maintainer: Ketchup901 <ketchup901@riseup.net>
+
+pkgname=lib32-libstdc++2.10-glibc2.2-bin
+pkgver=2.95.4
+pkgrel=1
+pkgdesc="Legacy GNU C++ Library"
+arch=('x86_64')
+url="https://www.gnu.org/software/cpplib/"
+license=('GPL-2.0-or-later')
+provides=('lib32-libstdc++2.10-glibc2.2' 'libstdc++-libc6.2-2.so.3')
+options=(!debug)
+source=("http://launchpadlibrarian.net/1452317/libstdc++2.10-glibc2.2_2.95.4-24_i386.deb")
+sha256sums=('4491a1b211724abc12197992198770c2460e7bb7c1c68888c18e34f546218885')
+
+package() {
+    tar -xf data.tar.gz ./usr/lib/libstdc++-3-libc6.2-2-2.10.0.so
+    install -Dm755 usr/lib/libstdc++-3-libc6.2-2-2.10.0.so -t "$pkgdir/usr/lib32/"
+    ln -s "libstdc++-3-libc6.2-2-2.10.0.so" "$pkgdir/usr/lib32/libstdc++-libc6.2-2.so.3"
+}
+

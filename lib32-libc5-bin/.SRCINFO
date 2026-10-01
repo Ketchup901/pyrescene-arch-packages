@@ -1,0 +1,13 @@
+pkgbase = lib32-libc5-bin
+	pkgdesc = Linux C Library 5
+	pkgver = 5.4.46
+	pkgrel = 1
+	url = https://www.man7.org/linux/man-pages/man7/libc.7.html
+	arch = x86_64
+	license = GPLv2
+	provides = lib32-libc5
+	options = !debug
+	source = https://www.kernel.org/pub/linux/libs/libc5/old/libc-5.4.46.bin.tar.gz
+	sha256sums = 2ba0d54c815619774763df6c3c4e060dcb6921e612495e5fb511bf1d275728a7
+
+pkgname = lib32-libc5-bin

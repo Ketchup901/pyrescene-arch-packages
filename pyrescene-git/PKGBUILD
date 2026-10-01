@@ -1,0 +1,45 @@
+# Maintainer: Ketchup901 <ketchup901@riseup.net>
+
+pkgname='pyrescene-git'
+pkgver=0.7.r62.g04da213
+pkgrel=1
+pkgdesc='pyReScene is a port of ReScene .NET to the Python programming language.'
+url='https://github.com/srrDB/pyrescene'
+arch=('any')
+license=('MIT')
+depends=('python' 'unrar' 'python-nntplib' 'rarlinux-pack')
+optdepends=('chromaprint')
+makedepends=('python-build' 'python-setuptools' 'python-installer' 'python-wheel')
+provides=("pyrescene")
+conflicts=("pyrescene")
+source=(
+  'pyrescene-git::git+https://github.com/srrDB/pyrescene.git'
+  'disable-size-check-for-compressed-rar-reconstruction.patch'
+)
+md5sums=(
+  'SKIP'
+  'e363034dd5bf5fb20552d6866db2bbb0'
+)
+
+pkgver() {
+  cd "$pkgname"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd "$pkgname"
+  git apply ../disable-size-check-for-compressed-rar-reconstruction.patch
+}
+
+package() {
+  cd "${pkgname}"
+
+  cp 'rescene/srr.py' 'rescene/srr.py~'
+  sed -i -r 's|(dest=\"rar_executable_dir\",)|\1 default=\"/opt/rarlinux\",|' 'rescene/srr.py'
+  python 'setup.py' install --root="${pkgdir}"
+  mv 'rescene/srr.py~' 'rescene/srr.py'
+
+  install -Dm755 "awescript/awescript.py" "$pkgdir/usr/bin/awescript"
+
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
